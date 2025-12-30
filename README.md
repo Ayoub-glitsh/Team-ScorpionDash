@@ -22,7 +22,7 @@
 <p align="center">
   <img src="img/My_picture.jpeg" width="150" alt="Ayoub Aguezar"/>
   <img src="img/kisra.jpeg" width="150" alt="Hamza Kousra"/>
-  <img src="assets/img/maroune.png" width="150" alt="Maroune Radi"/>
+  <img src="img/radi.jpeg" width="150" alt="Maroune Radi"/>
 </p>
 
 ### Membres et responsabilités
