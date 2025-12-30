@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe Scorpion - Dashboard Assurance Auto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d74da;
+            --accent-color: #e53e3e;
+            --light-color: #f7fafc;
+            --dark-color: #2d3748;
+            --gray-color: #718096;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .logo i {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            z-index: 5;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 30px auto 0;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 5;
+            position: relative;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+
+        .team-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .card-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 15px;
+            overflow: hidden;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: var(--primary-color);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .contributions {
+            margin-bottom: 25px;
+        }
+
+        .contributions-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contributions-title i {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+
+        .contributions-list {
+            list-style-type: none;
+        }
+
+        .contributions-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .contributions-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-btn.github {
+            background-color: #333;
+        }
+
+        .social-btn.linkedin {
+            background-color: #0077b5;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-link i {
+            margin-right: 8px;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .team-cards {
+                gap: 20px;
+            }
+            
+            .card {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .team-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                max-width: 100%;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-scorpion"></i>
+                Équipe Scorpion
+            </div>
+            <h1 class="page-title">Équipe Scorpion</h1>
+            <h2 class="page-subtitle">Découvrez les membres et leurs contributions au projet "Dashboard Assurance Auto"</h2>
+        </div>
+    </header>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Notre Équipe</h2>
+            <div class="team-cards">
+                <!-- Card 1: Ayoub Aguezar -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="member-name">Ayoub Aguezar</h3>
+                        <p class="member-role">Développeur Full-Stack</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="contributions">
+                            <h4 class="contributions-title">
+                                <i class="fas fa-tasks"></i> Contributions
+                            </h4>
+                            <ul class="contributions-list">
+                                <li>Développement de l'application</li>
+                                <li>Déploiement et hébergement</li>
+                                <li>Création des dépôts Git</li>
+                                <li>Architecture technique</li>
+                            </ul>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/Ayoub-glitsh/assurance-auto-dashboard/tree/main" class="social-btn github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ayoub-aguezar-a3b490338/" class="social-btn linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Hamza Kousra -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="avatar">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="member-name">Hamza Kousra</h3>
+                        <p class="member-role">Analyste de Données</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="contributions">
+                            <h4 class="contributions-title">
+                                <i class="fas fa-tasks"></i> Contributions
+                            </h4>
+                            <ul class="contributions-list">
+                                <li>Analyse des données Excel</li>
+                                <li>Publication des rapports</li>
+                                <li>Création du dashboard</li>
+                                <li>Visualisation des données</li>
+                            </ul>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/Ki-sra/DASHBORD-EFM" class="social-btn github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/hamza-kousra-319653345/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-btn linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Maroune Radi -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="avatar">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="member-name">Marouane Radi</h3>
+                        <p class="member-role">Designer UX/UI</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="contributions">
+                            <h4 class="contributions-title">
+                                <i class="fas fa-tasks"></i> Contributions
+                            </h4>
+                            <ul class="contributions-list">
+                                <li>Design de l'interface</li>
+                                <li>Création des fiches techniques</li>
+                                <li>Conception des maquettes</li>
+                                <li>Expérience utilisateur</li>
+                            </ul>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/marouaneradi/dashbord" class="social-btn github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/marouane-radi-843184362/" class="social-btn linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="https://github.com/Ayoub-glitsh/Team-ScorpionDash" class="project-link">
+                    <i class="fab fa-github"></i> Voir le projet sur GitHub
+                </a>
+                <p class="copyright">
+                    &copy; 2023 Équipe Scorpion - Dashboard Assurance Auto. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation for cards when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            // Simple hover effect enhancement
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
