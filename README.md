@@ -1,7 +1,7 @@
 # 🦂 Projet Scorpion - Dashboard Assurance Auto
   
 <p align="center">
-  <img src="img/scorpion.png" >
+  <img src="img/scorpion.png" >   
 
 </p>
 
