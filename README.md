@@ -1,6 +1,9 @@
 # 🦂 Projet Scorpion - Dashboard Assurance Auto
 
+<p align="center">
+  <img src="img/scorpion.png" >
 
+</p>
 
 **live demo** : https://marvelous-parfait-bbc033.netlify.app/
 
