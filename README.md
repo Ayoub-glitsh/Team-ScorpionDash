@@ -2,7 +2,7 @@
 
 
 
-live demo : https://marvelous-parfait-bbc033.netlify.app/
+**live demo** : https://marvelous-parfait-bbc033.netlify.app/
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/CSS)
@@ -29,7 +29,7 @@ live demo : https://marvelous-parfait-bbc033.netlify.app/
 
 | Nom           | Rôle / Contribution                             | Réseaux sociaux                      |
 | ------------- | ----------------------------------------------- | ------------------------------------ |
-| Ayoub Aguezar | Développement, Déploiement, Création des dépôts | [GitHub](https://github.com/ayoub)   |
+| Ayoub Aguezar | Développement, Déploiement, Création des dépôts | [GitHub](https://github.com/Ayoub-glitsh/)   |
 | Hamza Kousra  | Partie Excel, Publication, Dashboard            | [GitHub](https://github.com/hamza)   |
 | Maroune Radi  | Design, Création des fiches et maquettes        | [GitHub](https://github.com/maroune) |
 
