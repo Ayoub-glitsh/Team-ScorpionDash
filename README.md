@@ -31,7 +31,7 @@
 | ------------- | ----------------------------------------------- | ------------------------------------ |
 | Ayoub Aguezar | Développement, Déploiement, Création des dépôts | [GitHub](https://github.com/Ayoub-glitsh/)   |
 | Hamza Kousra  | Partie Excel, Publication, Dashboard            | [GitHub](https://github.com/Ki-sra)   |
-| Maroune Radi  | Design, Création des fiches et maquettes        | [GitHub](https://github.com/maroune) |
+| Maroune Radi  | Design, Création des fiches et maquettes        | [GitHub](https://github.com/marouaneradi) |
 
 ---
 
