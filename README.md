@@ -168,7 +168,7 @@ Ce projet est **open source** et sous licence **MIT**. Vous êtes libre d’util
 
 Pour toute question ou suggestion :
 
-* **Email** : [votre.email@example.com](mailto:ayoubaguezzar1@gmail.com)
+* **Email** : [ayoubaguezzar1@gmail.com](mailto:ayoubaguezzar1@gmail.com)
 * **GitHub** : [@Ayoub-glitsh]()
 
 ---
